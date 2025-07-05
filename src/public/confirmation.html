@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Received</title>
+</head>
+<body>
+  <h1>Thank you for your order!</h1>
+  <p id="details"></p>
+  <a href="/">Back to Order Form</a>
+  <script>
+    // Parse query parameters and display order details
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get('name');
+    const cakeOption = params.get('cakeOption');
+    const flavour = params.get('flavour');
+    const filling = params.get('filling');
+    let details = '';
+    if (name) details += `Order for <strong>${name}</strong><br>`;
+    console.log(cakeOption);
+    if (cakeOption) details += `Cake: ${cakeOption.replace(/-/g, ' ')}<br>`;
+    if (flavour) details += `Flavour: ${flavour.charAt(0).toUpperCase() + flavour.slice(1)}<br>`;
+    if (filling) details += `Filling: ${filling.replace(/-/g, ' ')}<br>`;
+    document.getElementById('details').innerHTML = details;
+  </script>
+</body>
+</html>

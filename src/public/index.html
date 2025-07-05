@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cake Fantasy Order Form</title>
+</head>
+<body>
+  <h1>Order a Cake</h1>
+  <form id="orderForm" method="POST" action="/form">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="cakeOption">Cake Size & Type:</label>
+    <select id="cakeOption" name="cakeOption" required>
+      <option value="">-- Select a cake --</option>
+      <option value="15cm-medium">15cm diameter medium height (10-12 adults) €50-55</option>
+      <option value="15cm-tall">15cm diameter tall (14-16 adults) €60-66</option>
+      <option value="20cm-short">20cm diameter short cake (16-18 adults) €64-68</option>
+      <option value="20cm-medium">20cm diameter medium height (20-22 adults) €70-75</option>
+      <option value="20cm-tall">20cm diameter tall (24-26 adults) €80-86</option>
+    </select><br>
+
+    <label for="flavour">Cake Flavour:</label>
+    <select id="flavour" name="flavour" required>
+      <option value="">-- Select a flavour --</option>
+      <option value="vanilla">Vanilla</option>
+      <option value="chocolate">Chocolate</option>
+      <option value="lemon">Lemon</option>
+      <option value="orange">Orange</option>
+    </select><br>
+
+    <label for="filling">Filling:</label>
+    <select id="filling" name="filling" required>
+      <option value="">-- Select a filling --</option>
+      <!-- Chocolate fillings -->
+      <option value="chocolate-orange-mousse" data-flavour="chocolate">Chocolate & orange mousse</option>
+      <option value="aero-chocolate" data-flavour="chocolate">Aero Chocolate</option>
+      <option value="chocolate-truffle" data-flavour="chocolate">Chocolate truffle</option>
+      <option value="oreo" data-flavour="chocolate">Oreo</option>
+      <!-- Other fillings -->
+      <option value="lemon-mousse-berries" data-flavour="other">Lemon mousse & red berries compote</option>
+      <option value="salted-peanut-candy" data-flavour="other">Salted peanut candy</option>
+      <option value="dulce-de-leche" data-flavour="other">Dulce de leche (caramel)</option>
+      <option value="orange-truffle" data-flavour="other">Orange truffle</option>
+    </select><br>
+
+    <button type="submit">Submit Order</button>
+  </form>
+  <script>
+    // Show fillings based on flavour
+    const flavourSelect = document.getElementById('flavour');
+    const fillingSelect = document.getElementById('filling');
+    function updateFillings() {
+      const flavour = flavourSelect.value;
+      Array.from(fillingSelect.options).forEach(option => {
+        if (!option.value) {
+          option.hidden = false;
+          return;
+        }
+        if (flavour === 'chocolate') {
+          option.hidden = option.getAttribute('data-flavour') !== 'chocolate';
+        } else if (flavour === 'vanilla' || flavour === 'lemon' || flavour === 'orange') {
+          option.hidden = option.getAttribute('data-flavour') !== 'other';
+        } else {
+          option.hidden = true;
+        }
+      });
+      fillingSelect.value = '';
+    }
+    flavourSelect.addEventListener('change', updateFillings);
+    window.addEventListener('DOMContentLoaded', updateFillings);
+  </script>
+</body>
+</html>

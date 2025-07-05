@@ -1,0 +1,48 @@
+[
+  {
+    "name": "SAnsira",
+    "cakeOption": "15cm-tall"
+  },
+  {
+    "name": "Eliza",
+    "cakeOption": "15cm-medium"
+  },
+  {
+    "name": "Ema",
+    "cakeOption": "20cm-short"
+  },
+  {
+    "name": "Ani",
+    "cakeOption": "20cm-short"
+  },
+  {
+    "name": "IAN",
+    "cakeOption": "20cm-short",
+    "flavour": "chocolate",
+    "filling": "chocolate-orange-mousse"
+  },
+  {
+    "name": "Pelo",
+    "cakeOption": "20cm-tall",
+    "flavour": "lemon",
+    "filling": "dulce-de-leche"
+  },
+  {
+    "name": "Zaza",
+    "cakeOption": "20cm-medium",
+    "flavour": "chocolate",
+    "filling": "aero-chocolate"
+  },
+  {
+    "name": "Mosquito",
+    "cakeOption": "20cm-short",
+    "flavour": "chocolate",
+    "filling": "aero-chocolate"
+  },
+  {
+    "name": "Tanda",
+    "cakeOption": "15cm-tall",
+    "flavour": "chocolate",
+    "filling": "chocolate-truffle"
+  }
+]
